@@ -87,7 +87,7 @@ export default function Home() {
         <div className="container mx-auto px-6 max-w-7xl grid lg:grid-cols-2 gap-20 items-center">
           <FadeIn>
             <div className="relative group">
-              <img src="/banner.png" alt="Engineering Drafting" className="rounded-[3rem] shadow-2xl w-full object-cover aspect-[4/5] transition-transform duration-700 group-hover:scale-[1.02]" />
+              <img src="/banner.jpg" alt="Engineering Drafting" className="rounded-[3rem] shadow-2xl w-full object-cover aspect-[4/5] object-center transition-transform duration-700 group-hover:scale-[1.02]" />
               <div className="absolute -bottom-8 -right-8 bg-primary text-white p-10 md:p-12 rounded-[2.5rem] shadow-2xl hidden md:block border-[6px] border-white transition-transform duration-700 group-hover:translate-x-4 group-hover:-translate-y-4">
                 <p className="font-jakarta font-extrabold text-4xl mb-2">Total</p>
                 <p className="font-bold text-sm text-accent uppercase tracking-widest">Outsourcing Support</p>

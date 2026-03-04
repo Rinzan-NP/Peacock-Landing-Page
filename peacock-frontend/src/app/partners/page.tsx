@@ -84,26 +84,58 @@ export default function Partners() {
                                     <li className="flex items-center gap-4 text-primary font-bold"><CheckCircle2 className="text-accent" /> UPS &amp; Drives</li>
                                     <li className="flex items-center gap-4 text-primary font-bold"><CheckCircle2 className="text-accent" /> VCB &amp; Switchgear (LV &amp; MV)</li>
                                 </ul>
+
+                                {/* Product Images Grid with Dark Frames */}
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                                    <div className="bg-slate-900 rounded-2xl p-4 flex flex-col items-center justify-between border-4 border-slate-800 hover:border-accent hover:shadow-xl transition-all h-full group">
+                                        <div className="bg-white w-full aspect-square rounded-xl p-4 mb-4 flex items-center justify-center relative overflow-hidden">
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent z-10 pointer-events-none" />
+                                            <img src="/images/partners/mcb.png" alt="Eaton MCB" className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 relative z-0" />
+                                        </div>
+                                        <span className="text-sm font-bold text-white text-center uppercase tracking-widest font-jakarta mt-auto">MCB</span>
+                                    </div>
+                                    <div className="bg-slate-900 rounded-2xl p-4 flex flex-col items-center justify-between border-4 border-slate-800 hover:border-accent hover:shadow-xl transition-all h-full group">
+                                        <div className="bg-white w-full aspect-[4/3] rounded-xl p-4 mb-4 flex items-center justify-center relative overflow-hidden">
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent z-10 pointer-events-none" />
+                                            <img src="/images/partners/mccb.png" alt="Eaton MCCB / Fuse" className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 relative z-0" />
+                                        </div>
+                                        <span className="text-xs md:text-sm font-bold text-white text-center uppercase tracking-widest font-jakarta mt-auto">MCB/Fuse/RCB</span>
+                                    </div>
+                                    <div className="bg-slate-900 rounded-2xl p-4 flex flex-col items-center justify-between border-4 border-slate-800 hover:border-accent hover:shadow-xl transition-all h-full group">
+                                        <div className="bg-white w-full aspect-square md:aspect-[4/3] rounded-xl p-4 mb-4 flex items-center justify-center relative overflow-hidden">
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent z-10 pointer-events-none" />
+                                            <img src="/images/partners/ups.png" alt="Eaton UPS & Drives" className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 relative z-0" />
+                                        </div>
+                                        <span className="text-xs md:text-sm font-bold text-white text-center uppercase tracking-widest font-jakarta mt-auto">UPS / Drives</span>
+                                    </div>
+                                    <div className="bg-slate-900 rounded-2xl p-4 flex flex-col items-center justify-between border-4 border-slate-800 hover:border-accent hover:shadow-xl transition-all h-full group">
+                                        <div className="bg-white w-full aspect-square rounded-xl p-4 mb-4 flex items-center justify-center relative overflow-hidden">
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent z-10 pointer-events-none" />
+                                            <img src="/images/partners/vcb.png" alt="Eaton VCB" className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 relative z-0" />
+                                        </div>
+                                        <span className="text-sm font-bold text-white text-center uppercase tracking-widest font-jakarta mt-auto">VCB</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </FadeIn>
 
-                    {/* SIEMENS */}
+                    {/* GE GRID SOLUTIONS */}
                     <FadeIn delay={0.2}>
                         <div className="bg-primary text-white p-10 md:p-14 rounded-[3rem] border border-primary shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-2 transition-all duration-500 h-full flex flex-col group relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px] opacity-60 pointer-events-none group-hover:bg-accent/30 transition-colors duration-700" />
                             <div className="relative z-10">
-                                <div className="w-64 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-8 shadow-sm border border-white/20 p-4">
-                                    <span className="font-jakarta font-black text-4xl text-white tracking-widest">SIEMENS</span>
+                                <div className="w-full h-48 md:h-56 bg-white/5 backdrop-blur-md rounded-2xl flex items-center justify-center mb-8 shadow-sm border border-white/10 p-2 overflow-hidden">
+                                    <img src="https://peacockengineers.com/wp-content/uploads/2021/03/GE-Grid-Solutions_peacockengineers-business-partnerships-5.jpeg" alt="GE Grid Solutions" className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700" />
                                 </div>
-                                <h4 className="font-jakarta text-3xl font-bold text-white mb-6">Authorized Partner</h4>
+                                <h4 className="font-jakarta text-3xl font-bold text-white mb-6">Grid Solutions Reseller</h4>
                                 <p className="text-white/80 text-lg leading-relaxed font-medium mb-8">
-                                    Authorized partner for Siemens products and services in the Middle East region. We secure high-tier engineering standards for electrification workflows and advanced power intelligence.
+                                    Grid Solutions provides power utilities and industries worldwide with equipment, systems and services to bring power reliably and efficiently from the point of generation to end power consumers.
                                 </p>
                                 <ul className="space-y-4 mb-8">
-                                    <li className="flex items-center gap-4 text-white font-bold"><CheckCircle2 className="text-accent" /> Electrification Systems</li>
-                                    <li className="flex items-center gap-4 text-white font-bold"><CheckCircle2 className="text-accent" /> Grid Automation</li>
-                                    <li className="flex items-center gap-4 text-white font-bold"><CheckCircle2 className="text-accent" /> Sustainable Energy Integration</li>
+                                    <li className="flex items-center gap-4 text-white font-bold"><CheckCircle2 className="text-accent" /> Equipment &amp; Systems</li>
+                                    <li className="flex items-center gap-4 text-white font-bold"><CheckCircle2 className="text-accent" /> Power Utilities Services</li>
+                                    <li className="flex items-center gap-4 text-white font-bold"><CheckCircle2 className="text-accent" /> Reliable Energy Distribution</li>
                                 </ul>
                             </div>
                         </div>

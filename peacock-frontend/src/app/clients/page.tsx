@@ -2,15 +2,18 @@ import { Star, Trophy, Target, Award, Building2, Globe2 } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 
 const clients = [
-    { name: "ABB", location: "Dubai / Riyadh" },
-    { name: "Alcatel Lucent", location: "Global" },
-    { name: "Areva", location: "Global" },
-    { name: "Cegelec", location: "Abu Dhabi" },
-    { name: "Dubai Petroleum Co", location: "UAE" },
-    { name: "Mitsubishi Co.", location: "UAE / Japan" },
-    { name: "Petrofac Inter.", location: "Regional" },
-    { name: "Siemens Dematic", location: "Global" },
-    { name: "Thermo LLC", location: "UAE" },
+    { name: "ABB", location: "Dubai / Riyadh", logo: "/images/clients/abb.jpg" },
+    { name: "Alcatel Lucent", location: "Global", logo: "/images/clients/alcatel.jpg" },
+    { name: "Areva", location: "Global", logo: "/images/clients/areva.jpg" },
+    { name: "Cegelec", location: "Abu Dhabi", logo: "/images/clients/cegelec.jpg" },
+    { name: "Dubai Petroleum Co", location: "UAE", logo: "/images/clients/dubai_petroleum.jpg" },
+    { name: "Khatib & Alami", location: "Sharjah / Dubai", logo: "/images/clients/khatib_alami.jpg" },
+    { name: "Marubeni", location: "Global", logo: "/images/clients/marubeni.jpg" },
+    { name: "Mitsubishi Co.", location: "UAE / Japan", logo: "/images/clients/mitsubishi.jpg" },
+    { name: "Petrofac Inter.", location: "Regional", logo: "/images/clients/petrofac.jpg" },
+    { name: "Siemens Dematic", location: "Global", logo: "/images/clients/siemens.jpg" },
+    { name: "Thermo LLC", location: "UAE", logo: "/images/clients/thermo.jpg" },
+    { name: "Veco", location: "Global", logo: "/images/clients/veco.jpg" },
 ];
 
 export default function Clients() {
@@ -64,12 +67,21 @@ export default function Clients() {
                     </h3>
                 </FadeIn>
 
-                <div className="grid grid-cols-2 lg:grid-cols-5 gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                     {clients.map((client, idx) => (
                         <FadeIn key={idx} delay={idx * 0.05}>
-                            <div className="bg-light p-10 rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col items-center justify-center text-center hover:bg-white hover:shadow-2xl hover:-translate-y-4 hover:border-accent/30 transition-all duration-500 min-h-[220px]">
-                                <span className="font-jakarta text-2xl font-bold text-primary mb-4">{client.name}</span>
-                                <span className="text-xs uppercase tracking-widest text-slate-400 font-bold">{client.location}</span>
+                            <div className="bg-white p-8 rounded-[2.5rem] border border-primary/5 shadow-sm flex flex-col items-center justify-center text-center hover:shadow-2xl hover:-translate-y-4 hover:border-accent/30 transition-all duration-500 min-h-[240px] group relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-[30px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                                <div className="w-full aspect-[4/3] flex items-center justify-center mb-6 p-4 bg-light/50 border border-slate-100 rounded-2xl transition-all duration-300 relative z-10">
+                                    <img
+                                        src={client.logo}
+                                        alt={`${client.name} logo`}
+                                        className="max-w-full max-h-full object-contain filter hover:filter-none transition-all duration-500 scale-95 group-hover:scale-110 MIX-BLEND-MULTIPLY mix-blend-multiply"
+                                    />
+                                </div>
+                                <span className="font-jakarta text-sm md:text-base font-bold text-primary mb-2 line-clamp-1 relative z-10">{client.name}</span>
+                                <span className="text-[0.65rem] md:text-xs uppercase tracking-widest text-slate-400 font-bold relative z-10">{client.location}</span>
                             </div>
                         </FadeIn>
                     ))}
