@@ -1,34 +1,56 @@
-import { Star, Trophy, Target, Award } from "lucide-react";
+import { Star, Trophy, Target, Award, Building2, Globe2 } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 
-export default function Clients() {
-    const clients = [
-        { name: "ABB", location: "UAE / KSA" },
-        { name: "Siemens", location: "Global" },
-        { name: "Petrofac", location: "Regional" },
-        { name: "Mitsubishi Co.", location: "UAE / Japan" },
-        { name: "Marubeni", location: "Global" },
-        { name: "Schneider", location: "Global" },
-        { name: "Dubai Petroleum Co", location: "UAE" },
-        { name: "Khatib & Alami", location: "Sharjah / Dubai" },
-        { name: "Cegelec", location: "Abu Dhabi" },
-        { name: "GASCO", location: "UAE" },
-    ];
+const clients = [
+    { name: "ABB", location: "Dubai / Riyadh" },
+    { name: "Alcatel Lucent", location: "Global" },
+    { name: "Areva", location: "Global" },
+    { name: "Cegelec", location: "Abu Dhabi" },
+    { name: "Dubai Petroleum Co", location: "UAE" },
+    { name: "Mitsubishi Co.", location: "UAE / Japan" },
+    { name: "Petrofac Inter.", location: "Regional" },
+    { name: "Siemens Dematic", location: "Global" },
+    { name: "Thermo LLC", location: "UAE" },
+];
 
+export default function Clients() {
     return (
         <div className="pt-32 pb-20 bg-white">
-            <section className="bg-primary rounded-[3rem] mx-4 md:mx-8 text-white py-32 md:py-48 mb-32 relative overflow-hidden shadow-2xl">
+            {/* Hero — horizontal logo ticker style with rising arcs decoration */}
+            <section className="bg-primary rounded-[3rem] mx-4 md:mx-8 mb-32 relative overflow-hidden shadow-2xl">
                 <div className="absolute inset-0 bg-[url('/hero.png')] opacity-10 mix-blend-screen bg-cover bg-center" />
-                <FadeIn className="container relative z-10 mx-auto px-6 text-center max-w-4xl">
-                    <span className="inline-block px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-bold text-xs uppercase tracking-widest mb-10 shadow-lg shadow-white/5">
+                {/* Concentric arc decorations */}
+                <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full border border-white/10 pointer-events-none" />
+                <div className="absolute -bottom-56 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px] rounded-full border border-white/5 pointer-events-none" />
+                <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full border border-white/15 pointer-events-none" />
+
+                <FadeIn className="container relative z-10 mx-auto px-8 md:px-16 py-24 md:py-36 text-center max-w-4xl">
+                    <span className="inline-block px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-bold text-xs uppercase tracking-widest mb-8 shadow-lg shadow-white/5">
                         Our Ecosystem
                     </span>
-                    <h1 className="font-jakarta text-6xl md:text-[5.5rem] font-bold mb-10 leading-[1.05] tracking-tight">
-                        Trusted by the <span className="text-accent underline decoration-4 decoration-accent/50 underline-offset-[16px]">World.</span>
+                    <h1
+                        className="font-jakarta text-5xl md:text-[5rem] font-bold leading-[1.05] tracking-tight text-white mb-8"
+                        style={{ textShadow: "0 2px 20px rgba(0,0,0,0.4)" }}
+                    >
+                        Trusted by the{" "}
+                        <span className="text-accent underline decoration-4 decoration-accent/50 underline-offset-[12px]">
+                            World.
+                        </span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light mb-12 max-w-3xl mx-auto">
-                        Collaborating with the world's leading multinational companies in Power Transmission, Infrastructure, and Oil & Gas.
+                    <p className="text-xl text-white/75 leading-relaxed font-light max-w-3xl mx-auto mb-12">
+                        Collaborating with the world&apos;s leading multinational companies in Power Transmission, Infrastructure, and Oil &amp; Gas.
                     </p>
+                    {/* Mini client name strip */}
+                    <div className="flex flex-wrap justify-center gap-3">
+                        {clients.slice(0, 6).map((c, i) => (
+                            <span key={i} className="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/70 text-sm font-semibold tracking-wide backdrop-blur-md">
+                                {c.name}
+                            </span>
+                        ))}
+                        <span className="px-4 py-1.5 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-semibold tracking-wide">
+                            +{clients.length - 6} more
+                        </span>
+                    </div>
                 </FadeIn>
             </section>
 

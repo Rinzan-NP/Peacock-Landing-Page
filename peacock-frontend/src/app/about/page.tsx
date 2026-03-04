@@ -1,40 +1,74 @@
-import { CheckCircle2, Diamond, ArrowRight } from "lucide-react";
+import { CheckCircle2, Diamond, ArrowRight, Clock, Users, Globe } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 import Link from "next/link";
 
 export default function About() {
     return (
         <div className="pt-32 pb-20 bg-white">
-            {/* Intro */}
-            <section className="bg-primary rounded-[3rem] mx-4 md:mx-8 text-white py-32 md:py-48 mb-32 relative overflow-hidden shadow-2xl">
+            {/* Hero — split layout: left text, right stats grid */}
+            <section className="bg-primary rounded-[3rem] mx-4 md:mx-8 mb-32 relative overflow-hidden shadow-2xl">
                 <div className="absolute inset-0 bg-[url('/hero.png')] opacity-10 mix-blend-overlay bg-cover bg-center" />
-                <FadeIn className="container relative z-10 mx-auto px-6 text-center max-w-4xl">
-                    <span className="inline-block px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-bold text-xs uppercase tracking-widest mb-10 shadow-lg shadow-white/5">
-                        Who We Are
-                    </span>
-                    <h1 className="font-jakarta text-6xl md:text-[5.5rem] font-bold mb-10 leading-[1.05] tracking-tight">
-                        Engineering the <span className="text-accent underline decoration-4 decoration-accent/50 underline-offset-[16px]">Future.</span>
-                    </h1>
-                    <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light mb-12 max-w-3xl mx-auto">
-                        Established in 2005, Peacock Electromechanical Works LLC has emerged as a premier "Total Outsourcing Solutions" provider across the Middle East.
-                    </p>
-                </FadeIn>
+                {/* Decorative circle */}
+                <div className="absolute -right-40 -top-40 w-[600px] h-[600px] rounded-full bg-accent/20 blur-3xl pointer-events-none" />
+                <div className="absolute -left-20 -bottom-20 w-[400px] h-[400px] rounded-full bg-white/5 blur-2xl pointer-events-none" />
+
+                <div className="container relative z-10 mx-auto px-8 md:px-16 py-24 md:py-36 grid lg:grid-cols-2 gap-16 items-center">
+                    {/* Left: text */}
+                    <FadeIn>
+                        <span className="inline-block px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-bold text-xs uppercase tracking-widest mb-8 shadow-lg shadow-white/5">
+                            Who We Are
+                        </span>
+                        <h1
+                            className="font-jakarta text-5xl md:text-[4.5rem] font-bold leading-[1.05] tracking-tight text-white mb-8"
+                            style={{ textShadow: "0 2px 20px rgba(0,0,0,0.4)" }}
+                        >
+                            Engineering the{" "}
+                            <span className="text-accent underline decoration-4 decoration-accent/50 underline-offset-[12px]">
+                                Future.
+                            </span>
+                        </h1>
+                        <p className="text-xl text-white/75 leading-relaxed font-light max-w-lg">
+                            Peacock is a leading outsourcing services provider in the Middle East with a proven track record. We offer engineering, training courses, CAD outsourcing, testing equipment rentals, printing and copying, project support, and HR recruitment.
+                        </p>
+                    </FadeIn>
+
+                    {/* Right: stat cards */}
+                    <FadeIn delay={0.2}>
+                        <div className="grid grid-cols-2 gap-6">
+                            {[
+                                { icon: <Clock size={28} />, stat: "18+", label: "Years of Mastery" },
+                                { icon: <Users size={28} />, stat: "500+", label: "Engineers Deployed" },
+                                { icon: <Globe size={28} />, stat: "10+", label: "Countries Served" },
+                                { icon: <CheckCircle2 size={28} />, stat: "ISO", label: "19650 Certified" },
+                            ].map((item, i) => (
+                                <div
+                                    key={i}
+                                    className="bg-white/10 backdrop-blur-md border border-white/20 rounded-[2rem] p-8 flex flex-col items-center text-center hover:bg-white/15 transition-colors"
+                                >
+                                    <span className="text-accent mb-3">{item.icon}</span>
+                                    <span className="font-jakarta text-4xl font-bold text-white mb-1">{item.stat}</span>
+                                    <span className="text-white/60 text-sm font-semibold uppercase tracking-wider">{item.label}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </FadeIn>
+                </div>
             </section>
 
             {/* Philosophy */}
             <section className="container mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center mb-40">
                 <FadeIn>
                     <h2 className="text-accent font-bold tracking-widest text-sm uppercase mb-6 flex items-center gap-4">
-                        <span className="w-12 h-[3px] bg-accent rounded-full"></span> Vision & Mission
+                        <span className="w-12 h-[3px] bg-accent rounded-full"></span> Vision &amp; Mission
                     </h2>
                     <h3 className="font-jakarta text-5xl md:text-6xl font-bold text-primary mb-10 leading-[1.05] tracking-tight">
                         Global Benchmark for Technical Outsourcing.
                     </h3>
                     <p className="text-slate-600 text-xl leading-relaxed mb-8 font-medium">
-                        Our mission is to provide high-quality outsourcing services that empower customers to achieve their business objectives in a faster, easier, and cost-effective way.
+                        We are committed to provide quality services to our customers thereby helping them achieve their business objectives in a faster, easier and cost-effective way.
                     </p>
                     <p className="text-slate-500 text-lg leading-relaxed mb-8">
-                        Operating as Peacock Electromechanical Works LLC in Dubai and Peacock Resources LLP in India, we ensure that every project is executed with zero compromise on quality and safety. We constantly innovate through Engineering Excellence, BIM, Reality Capture, and Digital construction solutions.
+                        Well trained, well experienced and well motivated, our human resource team will complete tasks on a turnkey basis. No compromise will be made on quality under any circumstances. Specialists in Oil & Gas engineering, Power Transmission Distribution, and MEP (Mechanical, Electrical, and Plumbing).
                     </p>
                 </FadeIn>
 

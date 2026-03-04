@@ -2,39 +2,55 @@ import { Zap, Hexagon, Cable, ChevronRight, CheckCircle2 } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 import Link from "next/link";
 
-export default function Partners() {
-    const verticals = [
-        {
-            title: "Vertical Engineering",
-            icon: <Zap size={36} />,
-            desc: "Specialized collaborative primary and secondary engineering systems spanning LV, MV, and EHV projects directly backed by our global partners.",
-        },
-        {
-            title: "BIM",
-            icon: <Hexagon size={36} />,
-            desc: "Integrated Building Information Modeling (3D to 7D) creating seamless digital environments for advanced equipment placement and modeling.",
-        },
-        {
-            title: "Project Support",
-            icon: <Cable size={36} />,
-            desc: "End-to-end management, equipment rentals, and testing & commissioning, ensuring technology vendors perform flawlessly on-site.",
-        },
-    ];
+const verticals = [
+    {
+        title: "Vertical Engineering",
+        icon: <Zap size={36} />,
+        desc: "Specialized collaborative primary and secondary engineering systems spanning LV, MV, and EHV projects directly backed by our global partners.",
+    },
+    {
+        title: "BIM",
+        icon: <Hexagon size={36} />,
+        desc: "Integrated Building Information Modeling (3D to 7D) creating seamless digital environments for advanced equipment placement and modeling.",
+    },
+    {
+        title: "Project Support",
+        icon: <Cable size={36} />,
+        desc: "End-to-end management, equipment rentals, and testing & commissioning, ensuring technology vendors perform flawlessly on-site.",
+    },
+];
 
+export default function Partners() {
     return (
         <div className="pt-32 pb-20 bg-white">
-            {/* Hero Section */}
-            <section className="bg-primary rounded-[3rem] mx-4 md:mx-8 text-white py-32 md:py-48 mb-32 relative overflow-hidden shadow-2xl">
+            {/* Hero — two-tone split: left dark primary, right lighter accent gradient */}
+            <section className="rounded-[3rem] mx-4 md:mx-8 mb-32 relative overflow-hidden shadow-2xl min-h-[400px] flex items-center">
+                {/* Left side */}
+                <div className="absolute inset-0 bg-primary" />
+                {/* Right diagonal accent panel */}
+                <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-accent/30 [clip-path:polygon(20%_0,100%_0,100%_100%,0%_100%)]" />
                 <div className="absolute inset-0 bg-[url('/hero.png')] opacity-10 mix-blend-screen bg-cover bg-center" />
-                <FadeIn className="container relative z-10 mx-auto px-6 text-center max-w-4xl">
-                    <span className="inline-block px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-bold text-xs uppercase tracking-widest mb-10 shadow-lg shadow-white/5">
+                {/* Partnership symbol */}
+                <div className="absolute right-12 top-1/2 -translate-y-1/2 flex items-center gap-4 opacity-20 pointer-events-none">
+                    <div className="w-32 h-32 rounded-full border-4 border-white" />
+                    <div className="w-32 h-32 rounded-full border-4 border-white -ml-12" />
+                </div>
+
+                <FadeIn className="container relative z-10 mx-auto px-10 md:px-16 py-24 md:py-32">
+                    <span className="inline-block px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-bold text-xs uppercase tracking-widest mb-8 shadow-lg shadow-white/5">
                         Business Partnerships
                     </span>
-                    <h1 className="font-jakarta text-6xl md:text-[5.5rem] font-bold mb-10 leading-[1.05] tracking-tight">
-                        Our Official <span className="text-accent underline decoration-4 decoration-accent/50 underline-offset-[16px]">Partners.</span>
+                    <h1
+                        className="font-jakarta text-5xl md:text-[5rem] font-bold leading-[1.05] tracking-tight text-white mb-8 max-w-2xl"
+                        style={{ textShadow: "0 2px 20px rgba(0,0,0,0.4)" }}
+                    >
+                        Our Official{" "}
+                        <span className="text-accent underline decoration-4 decoration-accent/50 underline-offset-[12px]">
+                            Partners.
+                        </span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light mb-12 max-w-3xl mx-auto">
-                        Authorized integration and distribution partnerships with the world's most advanced power technology manufacturers.
+                    <p className="text-xl text-white/75 leading-relaxed font-light max-w-2xl">
+                        Authorized integration and distribution partnerships with the world&apos;s most advanced power technology manufacturers.
                     </p>
                 </FadeIn>
             </section>
@@ -57,33 +73,32 @@ export default function Partners() {
                             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white rounded-full blur-[100px] opacity-60 pointer-events-none group-hover:scale-110 transition-transform duration-700" />
                             <div className="relative z-10">
                                 <div className="w-48 h-20 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm border border-slate-200 p-4">
-                                    {/* Fallback Text if Logo doesn't exist, styled nicely like Eaton's blue */}
                                     <span className="font-jakarta font-black text-4xl text-[#005AAA] tracking-widest">EATON</span>
                                 </div>
-                                <h4 className="font-jakarta text-3xl font-bold text-primary mb-6">Powering Business Worldwide</h4>
+                                <h4 className="font-jakarta text-3xl font-bold text-primary mb-6">Authorized Partner</h4>
                                 <p className="text-slate-500 text-lg leading-relaxed font-medium mb-8">
-                                    Integration with industry leaders saves you time and money. Eaton Power Quality Private Limited acts as a cornerstone, catering to every industrial segment with versatile solutions which include Switchgear (LV & MV), Fusegear, UPS systems, and comprehensive software solutions.
+                                    We are an authorized partner for the Eaton range of products, catering to every industrial segment with versatile solutions.
                                 </p>
                                 <ul className="space-y-4 mb-8">
-                                    <li className="flex items-center gap-4 text-primary font-bold"><CheckCircle2 className="text-accent" /> Switchgear: LV & MV Solutions</li>
-                                    <li className="flex items-center gap-4 text-primary font-bold"><CheckCircle2 className="text-accent" /> Advanced UPS Systems</li>
-                                    <li className="flex items-center gap-4 text-primary font-bold"><CheckCircle2 className="text-accent" /> Software Integration</li>
+                                    <li className="flex items-center gap-4 text-primary font-bold"><CheckCircle2 className="text-accent" /> MCB, Fuse &amp; RCB</li>
+                                    <li className="flex items-center gap-4 text-primary font-bold"><CheckCircle2 className="text-accent" /> UPS &amp; Drives</li>
+                                    <li className="flex items-center gap-4 text-primary font-bold"><CheckCircle2 className="text-accent" /> VCB &amp; Switchgear (LV &amp; MV)</li>
                                 </ul>
                             </div>
                         </div>
                     </FadeIn>
 
-                    {/* GE VERNOVA */}
+                    {/* SIEMENS */}
                     <FadeIn delay={0.2}>
                         <div className="bg-primary text-white p-10 md:p-14 rounded-[3rem] border border-primary shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/40 hover:-translate-y-2 transition-all duration-500 h-full flex flex-col group relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px] opacity-60 pointer-events-none group-hover:bg-accent/30 transition-colors duration-700" />
                             <div className="relative z-10">
                                 <div className="w-64 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-8 shadow-sm border border-white/20 p-4">
-                                    <span className="font-jakarta font-black text-3xl text-white tracking-widest">GE Vernova</span>
+                                    <span className="font-jakarta font-black text-4xl text-white tracking-widest">SIEMENS</span>
                                 </div>
-                                <h4 className="font-jakarta text-3xl font-bold text-white mb-6">A new era of Energy</h4>
+                                <h4 className="font-jakarta text-3xl font-bold text-white mb-6">Authorized Partner</h4>
                                 <p className="text-white/80 text-lg leading-relaxed font-medium mb-8">
-                                    Partnering with GE Vernova to accelerate the transition to more reliable, affordable, and sustainable energy globally. Our partnership secures high-tier engineering standards for electrification workflows, grid software, and advanced power intelligence.
+                                    Authorized partner for Siemens products and services in the Middle East region. We secure high-tier engineering standards for electrification workflows and advanced power intelligence.
                                 </p>
                                 <ul className="space-y-4 mb-8">
                                     <li className="flex items-center gap-4 text-white font-bold"><CheckCircle2 className="text-accent" /> Electrification Systems</li>

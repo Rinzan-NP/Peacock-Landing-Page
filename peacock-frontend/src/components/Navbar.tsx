@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
@@ -25,11 +25,23 @@ export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    // Track if this is the very first mount so we only animate in once
+    const hasAnimatedIn = useRef(false);
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // Close mobile menu on route change
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
+
+    // Mark that we've already animated in after the first render
+    useEffect(() => {
+        hasAnimatedIn.current = true;
     }, []);
 
     const navLinks = [
@@ -44,7 +56,7 @@ export default function Navbar() {
     return (
         <div className="fixed top-6 left-0 w-full z-[100] flex justify-center px-4 md:px-6 pointer-events-none">
             <motion.header
-                initial={{ y: -50, opacity: 0 }}
+                initial={hasAnimatedIn.current ? false : { y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className={`pointer-events-auto rounded-[2.5rem] transition-all duration-500 w-full flex items-center justify-between px-6 md:px-8 py-3 

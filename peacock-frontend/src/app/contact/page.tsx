@@ -10,7 +10,10 @@ export default function Contact() {
                     <span className="inline-block px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-bold text-xs uppercase tracking-widest mb-10 shadow-lg shadow-white/5">
                         Reach Out
                     </span>
-                    <h1 className="font-jakarta text-6xl md:text-[5.5rem] font-bold mb-10 leading-[1.05] tracking-tight">
+                    <h1
+                        className="font-jakarta text-6xl md:text-[5.5rem] font-bold mb-10 leading-[1.05] tracking-tight text-white"
+                        style={{ textShadow: "0 2px 20px rgba(0,0,0,0.4)" }}
+                    >
                         Connect with <span className="text-accent underline decoration-4 decoration-accent/50 underline-offset-[16px]">Us.</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-light mb-12 max-w-3xl mx-auto">
