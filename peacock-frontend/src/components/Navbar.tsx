@@ -28,9 +28,49 @@ export default function Navbar() {
     // Track if this is the very first mount so we only animate in once
     const hasAnimatedIn = useRef(false);
 
+    const navRef = useRef<HTMLElement>(null);
+    const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0 });
+
+    useEffect(() => {
+        const updateIndicator = () => {
+            if (navRef.current) {
+                const activeEl = navRef.current.querySelector('a[data-active="true"]') as HTMLElement;
+                if (activeEl) {
+                    setIndicatorStyle({
+                        left: activeEl.offsetLeft,
+                        width: activeEl.offsetWidth,
+                        opacity: 1
+                    });
+                }
+            }
+        };
+
+        // Run after tiny delay to ensure DOM layout is updated
+        const timeoutId = setTimeout(updateIndicator, 10);
+        window.addEventListener("resize", updateIndicator);
+
+        return () => {
+            clearTimeout(timeoutId);
+            window.removeEventListener("resize", updateIndicator);
+        };
+    }, [pathname]);
+
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
         window.addEventListener("scroll", handleScroll);
+        // Also update indicator style just in case of layout shift during scroll changes
+        window.addEventListener("scroll", () => {
+            if (navRef.current) {
+                const activeEl = navRef.current.querySelector('a[data-active="true"]') as HTMLElement;
+                if (activeEl && activeEl.offsetWidth > 0) {
+                    setIndicatorStyle(prev => ({
+                        ...prev,
+                        left: activeEl.offsetLeft,
+                        width: activeEl.offsetWidth,
+                    }));
+                }
+            }
+        });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -71,31 +111,30 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <LayoutGroup>
-                    <nav className="hidden lg:flex items-center bg-slate-50/50 p-1.5 rounded-full border border-slate-200/50 shadow-inner">
-                        {navLinks.map((link) => {
-                            const isActive = pathname === link.path || (link.path !== '/' && pathname.startsWith(link.path));
-                            return (
-                                <Link
-                                    key={link.path}
-                                    href={link.path}
-                                    className={`relative font-bold text-[13px] uppercase tracking-wider transition-colors px-6 py-2.5 rounded-full z-10 ${isActive ? "text-white" : "text-primary hover:text-accent"
-                                        }`}
-                                >
-                                    <span className="relative z-20">{link.name}</span>
-                                    {isActive && (
-                                        <motion.div
-                                            layoutId="activeNavBackground"
-                                            className="absolute inset-0 bg-accent rounded-full shadow-md shadow-accent/20 z-10"
-                                            initial={false}
-                                            transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                                        />
-                                    )}
-                                </Link>
-                            );
-                        })}
-                    </nav>
-                </LayoutGroup>
+                <nav ref={navRef} className="hidden lg:flex items-center bg-slate-50/50 p-1.5 rounded-full border border-slate-200/50 shadow-inner relative">
+                    <div
+                        className="absolute top-1.5 bottom-1.5 bg-accent rounded-full shadow-md shadow-accent/20 z-10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] pointer-events-none"
+                        style={{
+                            left: indicatorStyle.left,
+                            width: indicatorStyle.width,
+                            opacity: indicatorStyle.opacity
+                        }}
+                    />
+                    {navLinks.map((link) => {
+                        const isActive = pathname === link.path || (link.path !== '/' && pathname.startsWith(link.path));
+                        return (
+                            <Link
+                                key={link.path}
+                                href={link.path}
+                                data-active={isActive}
+                                className={`relative font-bold text-[13px] uppercase tracking-wider transition-colors px-6 py-2.5 rounded-full z-20 ${isActive ? "text-white" : "text-primary hover:text-accent"
+                                    }`}
+                            >
+                                <span className="relative z-20">{link.name}</span>
+                            </Link>
+                        );
+                    })}
+                </nav>
 
                 {/* Contact CTA */}
                 <div className="hidden lg:block flex-shrink-0">
