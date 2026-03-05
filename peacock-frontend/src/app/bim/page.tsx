@@ -2,90 +2,96 @@ import { Box, PlaySquare, Calculator, Leaf, HardHat } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 
 const bimDimensions = [
-    { title: "3D BIM | Visualization", icon: <Box size={36} />, desc: "Architectural, structural, and MEP modeling. Virtual clash detection and coordination to prevent on-site rework." },
-    { title: "4D BIM | Scheduling", icon: <PlaySquare size={36} />, desc: "Integration of time-related data for project scheduling. Visualizing construction steps sequentially against the timeline." },
-    { title: "5D BIM | Estimation", icon: <Calculator size={36} />, desc: "Extracting highly accurate quantities and cost estimates directly from the intelligent model for strict budget controls." },
-    { title: "6D BIM | Sustainability", icon: <Leaf size={36} />, desc: "Energy analysis, lighting simulation, and overall sustainability modeling checking against Green Building standard compliances." },
-    { title: "7D BIM | Facility Mgt", icon: <HardHat size={36} />, desc: "Post-construction asset lifecycle management. Integrating manuals, warranties, and maintenance schedules into the Digital Twin." },
+    { title: "3D BIM", sub: "Visualisation", icon: <Box size={22} />, desc: "Architectural, structural, and MEP modelling. Virtual clash detection and coordination to prevent on-site rework." },
+    { title: "4D BIM", sub: "Scheduling", icon: <PlaySquare size={22} />, desc: "Integration of time-related data for project scheduling. Visualising construction steps sequentially against the timeline." },
+    { title: "5D BIM", sub: "Estimation", icon: <Calculator size={22} />, desc: "Extracting highly accurate quantities and cost estimates directly from the intelligent model for strict budget controls." },
+    { title: "6D BIM", sub: "Sustainability", icon: <Leaf size={22} />, desc: "Energy analysis, lighting simulation, and sustainability modelling checking against Green Building standard compliances." },
+    { title: "7D BIM", sub: "Facility Mgt", icon: <HardHat size={22} />, desc: "Post-construction asset lifecycle management. Integrating manuals, warranties, and maintenance schedules into the Digital Twin." },
 ];
 
 export default function BIM() {
     return (
         <div className="pt-32 pb-20 bg-white">
-            {/* Hero — centered with grid pattern overlay and large dimension labels */}
-            <section className="bg-primary rounded-[3rem] mx-4 md:mx-8 mb-32 relative overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 bg-[url('/hero.png')] opacity-10 mix-blend-screen bg-cover bg-center" />
-                {/* Grid dot pattern */}
-                <div
-                    className="absolute inset-0 opacity-[0.06]"
-                    style={{
-                        backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
-                        backgroundSize: "32px 32px",
-                    }}
-                />
-                {/* Big watermark text */}
-                <div className="absolute bottom-0 right-0 text-[200px] font-black text-white/5 leading-none select-none pointer-events-none font-jakarta">
-                    BIM
+            {/* Hero — editorial, left-anchored headline, no symmetry */}
+            <section className="bg-primary mx-4 md:mx-8 mb-28 relative overflow-hidden shadow-2xl rounded-2xl min-h-[480px] flex items-end">
+                <div className="absolute inset-0 bg-[url('/hero.png')] opacity-[0.08] mix-blend-screen bg-cover bg-center" />
+                {/* Large BIM watermark for depth */}
+                <div className="absolute right-0 top-0 bottom-0 flex items-center justify-end pr-12 select-none pointer-events-none" aria-hidden>
+                    <span
+                        className="font-display font-bold text-white/[0.05] leading-none"
+                        style={{ fontSize: "clamp(160px, 22vw, 300px)", letterSpacing: "-0.06em" }}
+                    >
+                        BIM
+                    </span>
+                </div>
+                {/* Dimension pills — horizontal row, top-right */}
+                <div className="absolute top-8 right-8 flex gap-2 z-10">
+                    {["3D", "4D", "5D", "6D", "7D"].map((d) => (
+                        <span key={d} className="px-3 py-1 rounded-full bg-accent/20 border border-accent/30 text-accent font-body font-bold text-xs tracking-widest">
+                            {d}
+                        </span>
+                    ))}
                 </div>
 
-                <FadeIn className="container relative z-10 mx-auto px-8 md:px-16 py-24 md:py-36 text-center max-w-4xl">
-                    <span className="inline-block px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white font-bold text-xs uppercase tracking-widest mb-8 shadow-lg shadow-white/5">
-                        Technical Precision
-                    </span>
-                    {/* Dimension pills */}
-                    <div className="flex flex-wrap justify-center gap-3 mb-10">
-                        {["3D", "4D", "5D", "6D", "7D"].map((d) => (
-                            <span key={d} className="px-4 py-1.5 rounded-full bg-accent/20 border border-accent/30 text-accent font-bold text-sm tracking-widest">
-                                {d}
-                            </span>
-                        ))}
-                    </div>
+                <FadeIn className="container relative z-10 mx-auto px-8 md:px-16 py-16 md:py-20 max-w-5xl">
+                    <p className="font-body text-accent text-xs font-bold uppercase tracking-[0.25em] mb-5 flex items-center gap-3">
+                        <span className="w-5 h-px bg-accent" /> Technical Precision
+                    </p>
                     <h1
-                        className="font-jakarta text-5xl md:text-[5rem] font-bold leading-[1.05] tracking-tight text-white mb-8"
-                        style={{ textShadow: "0 2px 20px rgba(0,0,0,0.4)" }}
+                        className="font-display font-bold text-white leading-[0.92] mb-6"
+                        style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)", letterSpacing: "-0.04em" }}
                     >
                         Our Digital{" "}
-                        <span className="text-accent underline decoration-4 decoration-accent/50 underline-offset-[12px]">
-                            Twin.
-                        </span>
+                        <span className="text-accent">Twin.</span>
                     </h1>
-                    <p className="text-xl text-white/75 leading-relaxed font-light mb-12 max-w-3xl mx-auto">
-                        A digital representation of physical and functional characteristics of a facility. It serves as a shared knowledge resource for information about a facility, forming a reliable basis for decisions during its life-cycle.
+                    <p className="font-body text-white/65 text-lg leading-relaxed max-w-2xl">
+                        A digital representation of the physical and functional characteristics of a facility — forming
+                        a reliable knowledge resource for decisions across its entire life-cycle.
                     </p>
                 </FadeIn>
             </section>
 
-            <section className="container mx-auto px-6 mb-40">
-                <div className="grid lg:grid-cols-12 gap-20 items-center">
-                    <div className="lg:col-span-5">
+            {/* Content — staggered two-column, text first */}
+            <section className="container mx-auto px-6 mb-36">
+                <div className="grid lg:grid-cols-12 gap-16 items-start">
+                    {/* Sticky left column */}
+                    <div className="lg:col-span-4 lg:sticky lg:top-32">
                         <FadeIn>
-                            <h2 className="text-accent font-bold tracking-widest text-sm uppercase mb-6 flex items-center gap-4">
-                                <span className="w-12 h-[3px] bg-accent rounded-full"></span> Substation Modeling
-                            </h2>
-                            <h3 className="font-jakarta text-5xl md:text-6xl font-bold text-primary mb-10 leading-[1.05] tracking-tight">
-                                Empowering Smart Buildings.
-                            </h3>
-                            <p className="text-slate-600 text-xl leading-relaxed mb-8 font-medium">
-                                Peacock is a pioneer in implementing intelligent models for Gas Insulated Switchgear (GIS), Structural BIM, Firefighting systems, and complex MEP coordination.
+                            <p className="font-body text-accent text-xs font-bold uppercase tracking-[0.25em] mb-5 flex items-center gap-3">
+                                <span className="w-5 h-px bg-accent" /> Substation Modelling
                             </p>
-                            <div className="bg-light p-10 rounded-[2.5rem] border border-slate-200 mt-10">
-                                <p className="font-semibold text-primary italic text-2xl leading-relaxed">
+                            <h2
+                                className="font-display font-bold text-primary leading-[0.95] mb-8"
+                                style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", letterSpacing: "-0.04em" }}
+                            >
+                                Empowering Smart Buildings.
+                            </h2>
+                            <p className="font-body text-slate-500 text-base leading-relaxed mb-8">
+                                Peacock is a pioneer in implementing intelligent models for Gas Insulated Switchgear (GIS),
+                                Structural BIM, Firefighting systems, and complex MEP coordination.
+                            </p>
+                            <div className="border-l-4 border-accent pl-6 py-2">
+                                <p className="font-display font-bold text-primary italic text-xl leading-snug" style={{ letterSpacing: "-0.02em" }}>
                                     "Our 7D BIM solutions transform static building data into a living, manageable asset ecosystem."
                                 </p>
                             </div>
                         </FadeIn>
                     </div>
 
-                    <div className="lg:col-span-7 grid gap-8">
+                    {/* Right — dimension list */}
+                    <div className="lg:col-span-8 flex flex-col gap-4">
                         {bimDimensions.map((dim, idx) => (
-                            <FadeIn key={idx} delay={idx * 0.1}>
-                                <div className="flex gap-8 bg-white p-10 md:p-12 rounded-[3rem] shadow-xl shadow-primary/5 hover:-translate-y-2 hover:shadow-2xl hover:border-accent/40 transition-all duration-500 border border-slate-100 group">
-                                    <div className="w-20 h-20 shrink-0 bg-light text-primary rounded-[2rem] flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-500">
+                            <FadeIn key={idx} delay={idx * 0.08}>
+                                <div className="flex gap-6 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:border-accent/30 transition-all duration-300 group">
+                                    <div className="w-11 h-11 shrink-0 bg-slate-50 border border-slate-100 text-primary rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300">
                                         {dim.icon}
                                     </div>
-                                    <div className="flex flex-col justify-center">
-                                        <h4 className="font-jakarta text-3xl font-bold text-primary mb-4">{dim.title}</h4>
-                                        <p className="text-slate-500 font-medium text-lg leading-relaxed">{dim.desc}</p>
+                                    <div>
+                                        <div className="flex items-baseline gap-2 mb-2">
+                                            <h3 className="font-display font-bold text-primary text-xl" style={{ letterSpacing: "-0.02em" }}>{dim.title}</h3>
+                                            <span className="font-body text-accent text-xs font-bold uppercase tracking-widest">{dim.sub}</span>
+                                        </div>
+                                        <p className="font-body text-slate-500 text-sm leading-relaxed">{dim.desc}</p>
                                     </div>
                                 </div>
                             </FadeIn>

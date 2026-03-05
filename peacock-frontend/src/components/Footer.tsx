@@ -9,7 +9,7 @@ const PeacockLogoWhite = () => (
             <polyline points="9,16 20,27 31,16" />
         </svg>
         <div className="w-[140px] border-t-2 border-b-2 border-white/80 py-[2px] -mt-[4px] text-left">
-            <span className="font-bold tracking-[0.3em] font-serif uppercase block leading-none ml-[0.1em] text-[18px]">
+            <span className="font-display font-bold tracking-[0.28em] uppercase block leading-none ml-[0.1em] text-[18px]">
                 Peacock
             </span>
         </div>
@@ -27,38 +27,38 @@ export default function Footer() {
                     <Link href="/" className="inline-block mb-10 hover:opacity-80 transition-opacity">
                         <PeacockLogoWhite />
                     </Link>
-                    <p className="text-white/70 text-base leading-relaxed mb-10 font-medium">
-                        Total Outsourcing Solutions provider specializing in Engineering, BIM, Reality Capture, and Power Sector excellence since 2005.
+                    <p className="font-body text-white/60 text-sm leading-relaxed mb-10">
+                        Total Outsourcing Solutions provider specialising in Engineering, BIM, Reality Capture, and Power Sector excellence since 2005.
                     </p>
-                    <div className="flex gap-4">
-                        <a href="https://linkedin.com/company/peacock-resources-llp" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300">
-                            <Linkedin size={20} fill="currentColor" />
+                    <div className="flex gap-3">
+                        <a href="https://linkedin.com/company/peacock-resources-llp" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300">
+                            <Linkedin size={17} fill="currentColor" />
                         </a>
-                        <a href="#" className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300">
-                            <Twitter size={20} fill="currentColor" />
+                        <a href="#" className="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300">
+                            <Twitter size={17} fill="currentColor" />
                         </a>
-                        <a href="#" className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300">
-                            <Instagram size={20} />
+                        <a href="#" className="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center hover:bg-accent hover:border-accent transition-all duration-300">
+                            <Instagram size={17} />
                         </a>
                     </div>
                 </div>
 
                 {/* Quick Links */}
                 <div className="md:col-span-1">
-                    <h4 className="font-jakarta font-bold text-xl mb-8 tracking-wide">Quick Links</h4>
-                    <ul className="space-y-5 text-white/80 text-base font-medium">
-                        <li><Link href="/about" className="hover:text-accent flex items-center gap-3 transition-colors"><MoveRight size={16} /> About Us</Link></li>
-                        <li><Link href="/services" className="hover:text-accent flex items-center gap-3 transition-colors"><MoveRight size={16} /> Core Services</Link></li>
-                        <li><Link href="/bim" className="hover:text-accent flex items-center gap-3 transition-colors"><MoveRight size={16} /> BIM Specialization</Link></li>
-                        <li><Link href="/clients" className="hover:text-accent flex items-center gap-3 transition-colors"><MoveRight size={16} /> Global Partners</Link></li>
+                    <h4 className="font-display font-bold text-lg mb-8 tracking-tight">Quick Links</h4>
+                    <ul className="space-y-4 text-white/70 text-sm font-body">
+                        <li><Link href="/about" className="hover:text-accent flex items-center gap-3 transition-colors"><MoveRight size={14} /> About Us</Link></li>
+                        <li><Link href="/services" className="hover:text-accent flex items-center gap-3 transition-colors"><MoveRight size={14} /> Core Services</Link></li>
+                        <li><Link href="/bim" className="hover:text-accent flex items-center gap-3 transition-colors"><MoveRight size={14} /> BIM Specialisation</Link></li>
+                        <li><Link href="/clients" className="hover:text-accent flex items-center gap-3 transition-colors"><MoveRight size={14} /> Global Partners</Link></li>
                     </ul>
                 </div>
 
                 {/* HQ Address */}
                 <div className="md:col-span-1">
-                    <h4 className="font-jakarta font-bold text-xl mb-8 tracking-wide">Dubai HQ</h4>
-                    <address className="not-italic text-base text-white/70 space-y-3 font-medium leading-relaxed">
-                        <p className="text-white font-bold">Peacock Electromechanical</p>
+                    <h4 className="font-display font-bold text-lg mb-8 tracking-tight">Dubai HQ</h4>
+                    <address className="not-italic text-sm text-white/60 space-y-2 font-body leading-relaxed">
+                        <p className="text-white font-semibold">Peacock Electromechanical</p>
                         <p>Mohd. Ibrahim Siddiqi Bldg,</p>
                         <p>Al Karama, Dubai, UAE.</p>
                         <p>P.O. Box 17 18 73</p>
@@ -67,14 +67,14 @@ export default function Footer() {
 
                 {/* Contact */}
                 <div className="md:col-span-1">
-                    <h4 className="font-jakarta font-bold text-xl mb-8 tracking-wide">Contact Us</h4>
-                    <div className="text-base text-white/70 space-y-3 font-medium">
-                        <p className="hover:text-accent transition-colors"><a href="mailto:sales@peacockengineers.com">sales@peacockengineers.com</a></p>
-                        <p>Phone: +971 4 3547604</p>
+                    <h4 className="font-display font-bold text-lg mb-8 tracking-tight">Contact</h4>
+                    <div className="text-sm text-white/60 space-y-2 font-body">
+                        <p><a href="mailto:sales@peacockengineers.com" className="hover:text-accent transition-colors">sales@peacockengineers.com</a></p>
+                        <p>+971 4 3547604</p>
                     </div>
                     <Link
                         href="/contact"
-                        className="inline-flex mt-10 bg-white/10 border border-white/20 text-white hover:bg-accent hover:border-accent px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:-translate-y-1"
+                        className="inline-flex mt-8 bg-white/10 border border-white/20 text-white hover:bg-accent hover:border-accent px-6 py-2.5 rounded-full font-body font-semibold text-xs uppercase tracking-widest transition-all hover:-translate-y-0.5"
                     >
                         Get In Touch
                     </Link>
@@ -82,11 +82,11 @@ export default function Footer() {
 
             </div>
 
-            <div className="container mx-auto px-6 max-w-7xl mt-12 flex flex-col md:flex-row items-center justify-between text-sm text-white/40 font-medium">
+            <div className="container mx-auto px-6 max-w-7xl mt-10 flex flex-col md:flex-row items-center justify-between text-xs text-white/30 font-body">
                 <p>&copy; {new Date().getFullYear()} Peacock Resources LLP. All rights reserved.</p>
-                <div className="flex gap-6 mt-6 md:mt-0">
-                    <span className="hover:text-white/80 transition-colors">ISO 19650 Certified</span>
-                    <span className="hover:text-white/80 transition-colors">Quality Management</span>
+                <div className="flex gap-6 mt-4 md:mt-0">
+                    <span className="hover:text-white/60 transition-colors">ISO 19650 Certified</span>
+                    <span className="hover:text-white/60 transition-colors">Quality Management</span>
                 </div>
             </div>
         </footer>

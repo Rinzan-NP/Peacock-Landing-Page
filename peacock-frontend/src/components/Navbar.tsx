@@ -13,8 +13,8 @@ const PeacockLogo = () => (
             <polyline points="9,10 20,21 31,10" />
             <polyline points="9,16 20,27 31,16" />
         </svg>
-        <div className="w-[110px] border-t-[1.5px] border-b-[1.5px] border-current py-[1px] text-center shadow-sm">
-            <span className="font-bold tracking-[0.3em] ml-[0.2em] text-[13px] uppercase font-serif block leading-none">
+        <div className="w-[110px] border-t-[1.5px] border-b-[1.5px] border-current py-[1px] text-center">
+            <span className="font-display font-bold tracking-[0.28em] ml-[0.15em] text-[13px] uppercase block leading-none">
                 Peacock
             </span>
         </div>
@@ -127,7 +127,7 @@ export default function Navbar() {
                                 key={link.path}
                                 href={link.path}
                                 data-active={isActive}
-                                className={`relative font-bold text-[13px] uppercase tracking-wider transition-colors px-6 py-2.5 rounded-full z-20 ${isActive ? "text-white" : "text-primary hover:text-accent"
+                                className={`relative font-body font-semibold text-[12px] uppercase tracking-[0.12em] transition-colors px-6 py-2.5 rounded-full z-20 ${isActive ? "text-white" : "text-primary hover:text-accent"
                                     }`}
                             >
                                 <span className="relative z-20">{link.name}</span>
@@ -140,7 +140,7 @@ export default function Navbar() {
                 <div className="hidden lg:block flex-shrink-0">
                     <Link
                         href="/contact"
-                        className="bg-primary hover:bg-black text-white px-8 py-3.5 rounded-full font-bold text-sm uppercase tracking-wider transition-all shadow-xl hover:shadow-2xl shadow-primary/20 hover:-translate-y-1 block"
+                        className="bg-primary hover:bg-slate-900 text-white px-7 py-3 rounded-full font-body font-semibold text-xs uppercase tracking-[0.12em] transition-all shadow-lg hover:shadow-xl shadow-primary/20 hover:-translate-y-0.5 block"
                     >
                         Contact Us
                     </Link>

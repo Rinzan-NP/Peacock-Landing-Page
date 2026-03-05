@@ -2,14 +2,12 @@
 
 @theme {
   --color-primary: #1E3A8A;
-  /* Peacock Deep Blue from PDF */
   --color-accent: #0284C7;
-  /* Peacock Light Blue from PDF */
   --color-light: #F0F9FF;
   --color-dark: #0F172A;
 
-  --font-jakarta: var(--font-jakarta), sans-serif;
-  --font-inter: var(--font-inter), sans-serif;
+  --font-display: var(--font-display), Georgia, serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
 }
 
 @layer base {
@@ -18,6 +16,8 @@
     color: #334155;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    font-family: var(--font-body), sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
 
   h1,
@@ -26,10 +26,21 @@
   h4,
   h5,
   h6 {
+    font-family: var(--font-display), Georgia, serif;
     color: #1E3A8A;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  /* Crisp lining nums for all headings */
+  h1,
+  h2,
+  h3 {
+    font-feature-settings: "lnum" 1, "kern" 1;
   }
 }
 
+/* Navbar glassmorphism */
 .liquid-nav {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
@@ -43,4 +54,19 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Editorial display utility */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.font-body {
+  font-family: var(--font-body), sans-serif;
+}
+
+/* Tight tracking for large display text */
+.display-tight {
+  letter-spacing: -0.04em;
+  line-height: 0.95;
 }
